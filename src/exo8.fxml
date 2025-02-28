@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+            <?import javafx.scene.control.Button?>
+            <?import javafx.scene.layout.AnchorPane?>
+
+            <AnchorPane xmlns="http://javafx.com/javafx"
+                        xmlns:fx="http://javafx.com/fxml"
+                        fx:controller="exo8"
+                        prefHeight="400.0" prefWidth="600.0">
+                <children>
+                    <Button fx:id="openButton" layoutX="250.0" layoutY="180.0" mnemonicParsing="false" onAction="#openModalWindow" text="Ouvrir la fenêtre" />
+                </children>
+            </AnchorPane>

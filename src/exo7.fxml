@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="exo7"
+            prefHeight="400.0" prefWidth="600.0">
+    <center>
+        <SplitPane dividerPositions="0.25" prefHeight="160.0" prefWidth="200.0">
+            <items>
+                <ListView fx:id="imageListView" prefHeight="200.0" prefWidth="200.0" />
+                <BorderPane prefHeight="200.0" prefWidth="200.0">
+                    <center>
+                        <ImageView fx:id="displayImageView" fitHeight="300.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
+                    </center>
+                    <bottom>
+                        <Pane fx:id="dropPane" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: lightgray; -fx-border-color: darkgray; -fx-border-style: dashed;">
+                            <children>
+                                <Label alignment="CENTER" layoutX="125.0" layoutY="25.0" text="Glisser et déposer des images ici" textAlignment="CENTER" />
+                            </children>
+                            <BorderPane.margin>
+                                <Insets top="10.0" />
+                            </BorderPane.margin>
+                        </Pane>
+                    </bottom>
+                </BorderPane>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>
