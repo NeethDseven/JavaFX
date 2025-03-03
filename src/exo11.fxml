@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="exo11"
+            prefHeight="400.0" prefWidth="600.0">
+    <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <top>
+            <HBox alignment="CENTER" spacing="20.0">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10" />
+                </padding>
+                <Label text="Score:" style="-fx-font-size: 18px;"/>
+                <Label fx:id="scoreLabel" text="0" style="-fx-font-size: 18px;"/>
+                <Label text="Time Left:" style="-fx-font-size: 18px;"/>
+                <Label fx:id="timerLabel" text="30" style="-fx-font-size: 18px;"/>
+                <Button fx:id="startButton" text="Start Game" onAction="#startGame"/>
+            </HBox>
+        </top>
+        <center>
+            <Pane fx:id="gamePane" style="-fx-background-color: lightgray;">
+                <Button fx:id="clickButton" text="Click Me!" visible="false"
+                        onAction="#handleButtonClick"
+                        style="-fx-background-color: #ff6347; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </Pane>
+        </center>
+    </BorderPane>
+</AnchorPane>

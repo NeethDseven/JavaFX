@@ -1,14 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="exo10"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="500.0" prefWidth="700.0">
 
+    <TabPane tabClosingPolicy="UNAVAILABLE" AnchorPane.topAnchor="0.0"
+             AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+             AnchorPane.leftAnchor="0.0">
+        <tabs>
+            <!-- Accueil Tab -->
+            <Tab text="Accueil">
+                <content>
+                    <VBox spacing="20.0" alignment="CENTER">
+                        <padding>
+                            <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+                        </padding>
+                        <Label text="Bienvenue sur l'application">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label text="Cliquez sur les onglets pour naviguer" />
+                        <Button text="Actualiser" fx:id="refreshButton" onAction="#handleRefresh"/>
+                    </VBox>
+                </content>
+            </Tab>
+
+            <!-- Profil Tab -->
+            <Tab text="Profil">
+                <content>
+                    <GridPane hgap="10.0" vgap="15.0" alignment="CENTER">
+                        <padding>
+                            <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+                        </padding>
+
+                        <Label text="Information Personnelle" GridPane.columnIndex="0" GridPane.rowIndex="0"
+                               GridPane.columnSpan="2">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+
+                        <Label text="Nom:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextField fx:id="nameField" promptText="Entrez votre nom"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <TextField fx:id="emailField" promptText="Entrez votre email"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        <Label text="Téléphone:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <TextField fx:id="phoneField" promptText="Entrez votre téléphone"
+                                  GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                        <Label text="À propos de moi:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <TextArea fx:id="aboutField" promptText="Description" prefRowCount="4"
+                                 GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                        <HBox alignment="CENTER_RIGHT" spacing="10.0" GridPane.columnIndex="1"
+                              GridPane.rowIndex="5">
+                            <Button text="Enregistrer" fx:id="saveProfileButton"
+                                    onAction="#handleSaveProfile"/>
+                        </HBox>
+                    </GridPane>
+                </content>
+            </Tab>
+
+            <!-- Paramètres Tab -->
+            <Tab text="Paramètres">
+                <content>
+                    <VBox spacing="25.0">
+                        <padding>
+                            <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+                        </padding>
+
+                        <Label text="Paramètres de l'application">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Label>
+
+                        <TitledPane text="Apparence" expanded="true">
+                            <VBox spacing="10.0">
+                                <CheckBox fx:id="darkModeCheck" text="Mode sombre" />
+                                <Label text="Taille de la police:" />
+                                <Slider fx:id="fontSizeSlider" min="8" max="24" value="12"
+                                        showTickLabels="true" showTickMarks="true" />
+                            </VBox>
+                        </TitledPane>
+
+                        <TitledPane text="Notifications" expanded="false">
+                            <VBox spacing="10.0">
+                                <CheckBox fx:id="emailNotifCheck" text="Notifications par email" selected="true" />
+                                <CheckBox fx:id="pushNotifCheck" text="Notifications push" selected="true" />
+                            </VBox>
+                        </TitledPane>
+
+                        <TitledPane text="Langue" expanded="false">
+                            <VBox spacing="10.0">
+                                <RadioButton fx:id="frenchRadio" text="Français" selected="true">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="languageGroup" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="englishRadio" text="English" toggleGroup="$languageGroup" />
+                                <RadioButton fx:id="spanishRadio" text="Español" toggleGroup="$languageGroup" />
+                            </VBox>
+                        </TitledPane>
+
+                        <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                            <Button text="Réinitialiser" fx:id="resetButton" onAction="#handleReset"/>
+                            <Button text="Appliquer" fx:id="applyButton" onAction="#handleApply"/>
+                        </HBox>
+                    </VBox>
+                </content>
+            </Tab>
+        </tabs>
+    </TabPane>
 </AnchorPane>
